@@ -1,0 +1,81 @@
+extends ./layout.pug
+
+block content
+  body
+    .header.text-center.title-bar
+      a.btn.text-center.header(data-dismiss='modal', data-toggle='modal', href='#signUpModal') //--- FORUM
+    b
+    .col-sm-12.text-center.container-fluid
+      table
+        tbody
+          tr
+            td.content
+              .row
+                .col-lg-6
+                  .panel
+                    .panel-body
+                      .input-group
+                        input#example-input1-group2.form-control(type='text', name='example-input1-group2', placeholder='//---Post Message ...')
+                        span.input-group-btn
+                          button.btn.btn-effect-ripple.btn-inverse.post(type='button', data-dismiss='modal', data-toggle='modal', href='#postModal')
+                            | Post
+                            i.fa.fa-search
+                  .row
+                    .col-sm-12
+                      .panel
+                        .panel-body.p-t-10
+                          .media-main
+                            a.pull-left(href='#')
+                              img.thumb-lg.bx-s(src='http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzNjg3ODAzNDA0.jpg', alt='')
+                            .pull-right.btn-group-sm
+                              button.btn.btn-default.btn-sm.delete-button(type='button')
+                                span.glyphicon.glyphicon-remove
+                              p.post-time.text-muted 5:32 pm - 20 Apr
+                            .info
+                              h4.text-muted Mark Zuckerberg
+                              p.text-left Hi! I'm Mark Zuckerberg...I own Facebook.  I'm awesome.
+                              .row
+                              #signUpModal.modal.fade.template(tabindex='-1', data-id='', data-toggle='modal', aria-labelledby='signUpModalLabel', aria-hidden='true', style='display: none;')
+                                .modal-dialog(role='document')
+                                  .modal-content
+                                    .modal-header
+                                      button.close.submit-close(type='button', data-dismiss='modal', aria-label='Close')
+                                        span(aria-hidden='true') ×
+                                      h3#contactForm.modal-title Sign Up
+                                    .modal-body
+                                      form.submit-form
+                                        .form-group
+                                          label Name
+                                          input.form-control.submit-name(type='text', name='name', placeholder='First Last')
+                                        .form-group
+                                          label Email Address
+                                          input#exampleInputPassword1.form-control.submit-email(type='text', name='email', value='', placeholder='address@email.com')
+                                        .form-group
+                                          label Image URL
+                                          br
+                                          input#exampleInputFile.form-control.submit-image(type='text', name='image', placeholder='Link .jpg .png .bmp')
+                                    .modal-footer
+                                      button.btn.btn-inverse.submit-contact(type='button', data-dismiss='modal') Submit
+                                      button.btn.btn-default.submit-close(type='button', data-dismiss='modal') Close
+                              #postModal.modal.fade.template(tabindex='-1', data-id='', data-toggle='modal', aria-labelledby='postModalLabel', aria-hidden='true', style='display: none;')
+                                .modal-dialog(role='document')
+                                  .modal-content
+                                    .modal-header
+                                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                        span(aria-hidden='true') ×
+                                      h3#contactForm.modal-title POST
+                                    .modal-body
+                                      form.submit-form
+                                        .form-group
+                                          label Name
+                                          input.form-control.post-name(type='text', name='name', placeholder='First Last')
+                                        .form-group
+                                          label Email Address
+                                          input#exampleInputPassword1.form-control.post-email(type='email', name='email', value='', placeholder='address@email.com')
+                                        .form-group
+                                          label Image URL
+                                          br
+                                          input#exampleInputFile.form-control.post-image(type='text', name='image', placeholder='Link .jpg .png .bmp')
+                                    .modal-footer
+                                      button.btn.btn-inverse.submit-contact(type='button', data-dismiss='modal') Submit
+                                      button.btn.btn-default(type='button', data-dismiss='modal') Close

@@ -1,0 +1,80 @@
+extends ./layout.pug
+
+block content
+  body
+    .header.text-center.title-bar
+      a.btn.text-center.header(data-dismiss='modal', data-toggle='modal', href='#signUpModal') //--- FORUM
+    b
+    .col-sm-12.text-center.container-fluid
+      table
+        tbody
+          tr
+            td.content
+              .row
+                .col-lg-6
+                  .panel
+                    .panel-body
+                      .input-group
+                        input#example-input1-group2.form-control(type='text', name='example-input1-group2', placeholder='// Post Message ...')
+                        span.input-group-btn
+                          button.btn.btn-effect-ripple.btn-inverse(type='button', data-dismiss='modal', data-toggle='modal', href='#postModal')
+                            | Post
+                            i.fa.fa-search
+                  each value, index of data
+                  .row
+                    .col-sm-12
+                      .panel
+                        .panel-body.p-t-10
+                          .media-main
+                            a.pull-left(href='#')
+                              img.thumb-lg.bx-s(src='value.image', alt='')
+                            .pull-right.btn-group-sm
+                              p.post-time value.time
+                            .info
+                              h4 value.name
+                              p.text-left.text-muted value.message
+                              .row
+                              #signUpModal.modal.fade.template(tabindex='-1', data-id='', data-toggle='modal', aria-labelledby='signUpModalLabel', aria-hidden='true', style='display: none;')
+                                .modal-dialog(role='document')
+                                  .modal-content
+                                    .modal-header
+                                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                        span(aria-hidden='true') ×
+                                      h3#contactForm.modal-title Sign Up
+                                    .modal-body
+                                      form.submit-form
+                                        .form-group
+                                          label Name
+                                          input.form-control.newName(type='text', name='name', placeholder='First Last')
+                                        .form-group
+                                          label Email Address
+                                          input#exampleInputPassword1.form-control.newEmail(type='text', name='email', value='', placeholder='address@email.com')
+                                        .form-group
+                                          label Image URL
+                                          br
+                                          input#exampleInputFile.form-control.newImage(type='text', name='image', placeholder='Link .jpg .png .bmp')
+                                    .modal-footer
+                                      button.btn.btn-inverse.submit-contact(type='button', data-dismiss='modal') Submit
+                                      button.btn.btn-default(type='button', data-dismiss='modal') Close
+                              #postModal.modal.fade.template(tabindex='-1', data-id='', data-toggle='modal', aria-labelledby='postModalLabel', aria-hidden='true', style='display: none;')
+                                .modal-dialog(role='document')
+                                  .modal-content
+                                    .modal-header
+                                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                        span(aria-hidden='true') ×
+                                      h3#contactForm.modal-title POST
+                                    .modal-body
+                                      form.submit-form
+                                        .form-group
+                                          label Name
+                                          input.form-control.newName(type='text', name='name', placeholder='First Last')
+                                        .form-group
+                                          label Message
+                                          input#exampleInputPassword1.form-control.newEmail(type='text', name='email', value='', placeholder='address@email.com')
+                                        .form-group
+                                          label Image URL
+                                          br
+                                          input#exampleInputFile.form-control.newImage(type='text', name='image', placeholder='Link .jpg .png .bmp')
+                                    .modal-footer
+                                      button.btn.btn-inverse.submit-contact(type='button', data-dismiss='modal') Submit
+                                      button.btn.btn-default(type='button', data-dismiss='modal') Close
